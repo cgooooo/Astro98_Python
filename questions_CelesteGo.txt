@@ -1,0 +1,20 @@
+1. What are 3-5 (or more) commands that you can use on terminal and what do they do? What language is your computer terminal in?
+Some commands you can use are cd, which moves you to a directory within your computer, clear to clear your terminal workspace, or ls to show what is within a certain directory. 
+
+
+2. Do you have pets? What kind?
+I have a 13 year old dog, 6 turtles, 3 fish, and and axolotl named Cookie! (not too sure if those are legal to own in california though)
+
+
+3. If you run across an error, what would your first course of action be?
+You should see if it specifies where in your code there is an issue cuh as an "unexpected term" or when a "directory does not exist" to identify what you might have to change. 
+
+
+4. Funniest thing that happened to you in high school.
+My friend took a half a piece of bread from lunch and attached it to a keychain on her backpack and wore it on her lanyard for the rest of the day. 
+
+
+5. What is a python script? (Keep it simple)
+A Python script is a file that contains code that you can run in your command line. An example is the way all python scripts are contained within .py files!
+
+
