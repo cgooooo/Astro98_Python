@@ -1,0 +1,46 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from astropy.table import Table
+import pandas as pd
+
+#2.1
+DataTable = Table.read('global_SF6_MM.dat')
+data
+
+#2.2
+data_df = data_table.to_pandas()
+data_df.columns = ['data', 'global_mean_concentration', 'global_mean_concentration_sd']
+data
+
+#2.3 
+plt.errorbar(data_df['date'], data_df['global_mean_concentration'], yerr = data_df['global_mean_concentration_sd'], fmt = 'o')
+plt.title('Global Mean Concentration Over Time')
+plt.xlabel('Date')
+plt.ylabel('Global Mean Concentration')
+plt.show()
+
+#2.4
+coeffs = np.polyfit(data_df['date'], data_df['global_mean_concentration'], deg = 1)
+
+#2.5
+predictions = np.polyval(coeffs, data_df['date'])
+residuals = data_df['global_mean_concentration'] - predictions
+ChiSquared = np.sum((residuals / data_df['global_mean_concentration_sd']) ** 2) / (len(data_df) - 2)
+
+#2.6
+coeffs, covariance = np.polyfit(data_df['date'], data_df['global_mean_concentration'], deg = 1, cov = True)
+SlopeError = np.sqrt(covariance[0,0])
+InterceptError = np.sqrt(covariance[1,1])
+
+print(f"{coeffs[0]:.2f} +/- {SlopeError:.2f}")
+print(f"{coeffs[1]:.2f} +/- {InterceptError:.2f}")
+print(f"y = {coeffs[0]:.2f}x +/- {coeffs[1]:.2f}")
+print(f"{ChiSquared:.2f}")
+
+#2.7 
+plt.scatter(data_df['date'], residuals, color = 'red')
+plt.title("Plot of REsiduals")
+plt.xlabel('Date')
+plt.ylabel('Residuals')
+
+plt.axhline(y = 0)
